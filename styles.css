@@ -53,22 +53,33 @@ footer{
 h1{
     font-size: 1.5rem;
 }
+h2{
+    font-size: 1.2rem;
+}
 button{
     background-color: var(--Bright-Yellow);
     border: none;
     color: var(--Light-Gray);
     width: 100%;
-    margin-top: 1.5em;
     padding: 1em 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
-    border-radius: 8px;
+    border-radius: 5px;
     box-shadow: 0px 4px 10px hsl(179, 60%, 33%);
     cursor: pointer;
+    justify-self: flex-end;
+    text-shadow: 0px 1px 5px hsl(71, 59%, 40%);
 }
-button span{
-    text-shadow: 0px 1px 8px hsl(71, 63%, 45%);
+
+button:focus,
+button:hover{
+    transition: all 0.2s ease-in-out;
+    background-color: hsl(72, 80%, 76%);
+    color: var(--Grayish-Blue);
+    text-shadow: none;
 }
+
+
 .container{
     background-color: #fff;
     display: grid;
@@ -84,6 +95,7 @@ button span{
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0px 3px 15px hsl(217, 32%, 75%);
+    margin: 0 2.5em;
   }
   .pricing{
     display: flex;
@@ -94,9 +106,15 @@ button span{
 .join-the-community,
 .monthly-sub,
 .why-us{
-    padding: 1.95em;
+    padding: 2.5em;
     color: #fff;
 }
+
+.monthly-sub,
+.why-us{
+    padding: 2.5em;
+}
+
 .join-the-community {
     grid-area: join-the-community;
     color: inherit;
@@ -105,13 +123,23 @@ button span{
     margin-top: 1.3em;
     line-height: 1.6;
 }
+.join-the-community p:last-child{
+    margin-top: .25em;
+    line-height: 1.6;
+}
   
 .monthly-sub {
     grid-area: monthly-sub;
     background-color: var(--Cyan);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
     
 }
-  
+button{
+    margin-top: 2em;
+} 
 .why-us {
     grid-area: why-us;
     background-color: hsl(179, 58%, 52%);
@@ -123,4 +151,19 @@ li{
     list-style-type: none;
     margin: 5px 0;
     color:  rgba(229, 239, 245, 0.82);
+}
+
+@media screen and (min-width:720px) {
+    .container{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 225px max-content;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "join-the-community join-the-community"
+      "monthly-sub why-us";
+      max-width: 650px;
+    }
+
+    
 }
